@@ -4,7 +4,7 @@ var lastPos = {
 }
 var canvas = document.querySelector("canvas")
 var brush = canvas.getContext("2d")
-var press = false
+var press = false;
 
 window.addEventListener("mousedown", function(event){
     if (event.button === 0){
