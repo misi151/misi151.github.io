@@ -8,7 +8,8 @@ var press = false
 
 window.addEventListener("mousedown", function(event){
     if (event.button === 0){
-        press = true
+        press = true;
+
         lastPos = {
             x: event.clientX,
             y: event.clientY
@@ -16,13 +17,15 @@ window.addEventListener("mousedown", function(event){
     }
 })
 window.addEventListener("mouseUp", function(event){
-    press= false
+    if (event.button === 0){
+        press= false
+    }
 })
 window.addEventListener("mousemove", function(event){
     if (event.clientX >= 8 && event.clientX <= 648 && event.clientY >= 8 && event.clientY <= 488) {
         if(press) {
             brush.beginPath()
-            brush.moveTo(clientX - 8, clientY - 8)
+            brush.moveTo(lastPos.x - 8, lastPos.y - 8)
             brush.lineTo(event.clientX - 8, event.clientY - 8)
             brush.stroke()
 
